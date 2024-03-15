@@ -1,0 +1,26 @@
+{
+    "name": "package/admin-users",
+    "description": "Admin User mayviet package",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Giang Hung Viet",
+            "email": "hungviet.giang@sudo.vn"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Package\\AdminUser\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Package\\AdminUser\\Providers\\UserServiceProvider"
+            ],
+            "aliases": {}
+        }
+    }
+}
