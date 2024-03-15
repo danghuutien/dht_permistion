@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function login(){
-        return 1;
+    public function login() {
+        if (Auth::check()) {
+            return redirect('/');
+        } else {
+    	   return view('AdminUser::auth.login');
+        }
     }
 }
