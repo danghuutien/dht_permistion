@@ -29,6 +29,3 @@ buildScss.forEach(function (value) {
         mix.sass(src, value.file_path);
     })
  });
-mix.postCss('public/admin_assets/css/tailwindcss.css', 'public/admin_assets/build/css/tailwindcss.min.css', [
-    require('tailwindcss')
-]);

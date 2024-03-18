@@ -5,6 +5,7 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+    'vesion' => '1.1',
     /*
     |--------------------------------------------------------------------------
     | Application Name
