@@ -1,0 +1,34 @@
+{
+    "name": "package/base",
+    "description": "Base danghuutien package",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Đặng hữu tiến",
+            "email": "danghuutien@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Package\\Layout\\": "layout/src/",
+            "Package\\Table\\": "table/src/",
+            "Package\\Form\\": "form/src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Package\\Table\\Providers\\TableServiceProvider",
+                "Package\\Form\\Providers\\FormServiceProvider"
+            ],
+            "aliases": {
+                "ListData": "Package\\Table\\MyClass\\ListData",
+                "Form": "Package\\Form\\MyClass\\FormBuilder"
+            }
+        }
+    }
+}

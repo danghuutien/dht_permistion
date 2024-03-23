@@ -1,0 +1,27 @@
+{
+    "name": "package/page",
+    "description": "Page mv package",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Đặng hữu tiến",
+            "email": "danghuutien@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Package\\Page\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Package\\Page\\Providers\\PageServiceProvider"
+            ],
+            "aliases": {}
+        }
+    }
+}

@@ -10,7 +10,9 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "package/admin-users": "dev-main"
+        "package/admin-users": "dev-main",
+        "package/page": "dev-main",
+        "package/base": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
