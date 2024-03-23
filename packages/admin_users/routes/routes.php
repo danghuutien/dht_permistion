@@ -4,5 +4,6 @@ App::booted(function() {
 	
 	Route::namespace($namespace)->name('admin.')->middleware(['web'])->group(function () {
         Route::get('/login', 'AuthController@login')->name('login');
+        Route::post('/login', 'AuthController@setLogin')->name('setLogin');
     });
 });

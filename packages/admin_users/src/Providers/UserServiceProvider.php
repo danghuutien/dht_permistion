@@ -23,8 +23,7 @@ class UserServiceProvider extends ServiceProvider
      * alias => path
      */
     protected $commands = [
-        // 'Package\AdminUser\Commands\AdminUserSeedCommand',
-        // 'Package\AdminUser\Commands\LicenseSeedCommand',
+        'Package\AdminUser\Commands\AdminUserSeedCommand',
     ];
 
     /**
@@ -32,9 +31,8 @@ class UserServiceProvider extends ServiceProvider
      * name => middleware
      */
     protected $middleware = [
-        // 'auth-admin' => '\Sudo\AdminUser\Http\Middleware\AdminAuthenticate',
-        // 'only-dev' => '\Sudo\AdminUser\Http\Middleware\OnlyDev',
-        // 'check-license' => '\Sudo\AdminUser\Http\Middleware\CheckLicense',
+        'auth-admin' => '\Package\AdminUser\Http\Middleware\AdminAuthenticate',
+        'only-dev' => '\Package\AdminUser\Http\Middleware\OnlyDev',
     ];
 
     /**
@@ -111,15 +109,15 @@ class UserServiceProvider extends ServiceProvider
         //         __DIR__.'/../../resources/assets' => public_path(),
         //     ];
         //     $config = [
-        //         __DIR__.'/../../config/SudoWidget.php' => config_path('SudoWidget.php'),
-        //         __DIR__.'/../../config/SudoMenu.php' => config_path('SudoMenu.php'),
-        //         __DIR__.'/../../config/SudoModule.php' => config_path('SudoModule.php'),
+        //         __DIR__.'/../../config/PackageWidget.php' => config_path('PackageWidget.php'),
+        //         __DIR__.'/../../config/PackageMenu.php' => config_path('PackageMenu.php'),
+        //         __DIR__.'/../../config/PackageModule.php' => config_path('PackageModule.php'),
         //     ];
         //     $all = array_merge($assets, $config);
         //     // Khởi chạy chung theo core
-        //     $this->publishes($all, 'sudo/core');
-        //     $this->publishes($assets, 'sudo/core/assets');
-        //     $this->publishes($config, 'sudo/core/config');
+        //     $this->publishes($all, 'Package/core');
+        //     $this->publishes($assets, 'Package/core/assets');
+        //     $this->publishes($config, 'Package/core/config');
         // }
     }
 

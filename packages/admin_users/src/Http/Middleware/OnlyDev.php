@@ -1,11 +1,11 @@
 <?php
 
-namespace Package\AdminUser\Http\Middleware;
+namespace Sudo\AdminUser\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAuthenticate
+class OnlyDev
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,14 @@ class AdminAuthenticate
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->status != 1) {
-                Auth::logout();
-                return redirect(route('admin.login'));
+            if (Auth::user()->id == 1) {
+                return $next($request);
+            } else {
+                return redirect(route('admin.home'))->with([
+                    'type' => 'danger',
+                    'message' => 'Bạn không có quyền với thao tác này.',
+                ]);
             }
-            return $next($request);
         } else {
             return redirect(route('admin.login'));
         }
