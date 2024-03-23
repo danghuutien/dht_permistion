@@ -13,7 +13,11 @@ module.exports = {
       extend: {},
     },
     variants: {
-      extend: {},
+      extend: {
+        borderWidth: {
+          DEFAULT: '1px',
+        }
+      },
     },
     plugins: [],
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace Package\Page\Http\Controllers;
-use Package\Base\Http\Controllers\AdminController;
+use Package\Layout\Http\Controllers\AdminController;
 
 use Illuminate\Http\Request;
 use ListData;

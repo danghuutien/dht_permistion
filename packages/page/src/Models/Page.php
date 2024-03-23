@@ -2,7 +2,7 @@
 
 namespace Package\Page\Models;
 
-use Package\Base\Models\BaseModel;
+use Package\Layout\Models\BaseModel;
 
 class Page extends BaseModel {
 	/**

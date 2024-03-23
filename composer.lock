@@ -2436,12 +2436,13 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/base",
-                "reference": "d6fb91b940b28d067ae2869ffef91bdc819df8e8"
+                "reference": "b0d6dfa2ad82c1dcb6d691903ef49ba435845d73"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
+                        "Package\\Layout\\Providers\\LayoutServiceProvider",
                         "Package\\Table\\Providers\\TableServiceProvider",
                         "Package\\Form\\Providers\\FormServiceProvider"
                     ],

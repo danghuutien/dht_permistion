@@ -1,13 +1,13 @@
 <?php
  
-namespace Sudo\Base\Providers;
+namespace Package\Layout\Providers;
  
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
-class BaseServiceProvider extends ServiceProvider
+class LayoutServiceProvider extends ServiceProvider
 {
     /**
      * Register config file here (Chỉ áp dụng cho configs không sắp sếp theo thứ tự)
@@ -22,9 +22,7 @@ class BaseServiceProvider extends ServiceProvider
      * alias => path
      */
     protected $commands = [
-        'Sudo\Base\Commands\SudoSeedCommand',
-        'Sudo\Base\Commands\SudoClearCommand',
-        'Sudo\Base\Commands\CrawlDataCommand',
+        
     ];
 
     /**
@@ -32,7 +30,7 @@ class BaseServiceProvider extends ServiceProvider
      * name => middleware
      */
     protected $middleare = [
-        'only-dev' => '\Sudo\Base\Http\Middleware\OnlyDev',
+        'only-dev' => '\Package\Layout\Http\Middleware\OnlyDev',
     ];
 
 	/**
@@ -63,7 +61,7 @@ class BaseServiceProvider extends ServiceProvider
     private function registerModule() 
     {
     	$modulePath = __DIR__.'/../../';
-    	$moduleName = 'Core';
+    	$moduleName = 'Base';
 		// boot route
         if (File::exists($modulePath."routes/routes.php")) {
             $this->loadRoutesFrom($modulePath."/routes/routes.php");
@@ -109,15 +107,13 @@ class BaseServiceProvider extends ServiceProvider
                 __DIR__.'/../../resources/assets' => public_path(),
             ];
             $config = [
-                __DIR__.'/../../config/SudoWidget.php' => config_path('SudoWidget.php'),
-                __DIR__.'/../../config/SudoMenu.php' => config_path('SudoMenu.php'),
-                __DIR__.'/../../config/SudoModule.php' => config_path('SudoModule.php'),
+                
             ];
             $all = array_merge($assets, $config);
             // Khởi chạy chung theo core
-            $this->publishes($all, 'sudo/core');
-            $this->publishes($assets, 'sudo/core/assets');
-            $this->publishes($config, 'sudo/core/config');
+            $this->publishes($all, 'package/base');
+            $this->publishes($assets, 'package/base/assets');
+            $this->publishes($config, 'package/base/config');
         }
     }
 

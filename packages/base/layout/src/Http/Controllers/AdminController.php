@@ -1,6 +1,6 @@
 <?php
 
-namespace Sudo\Base\Http\Controllers;
+namespace Package\Layout\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,8 +19,6 @@ class AdminController extends Controller
     public $breadcrumbs;
 
     function __construct() {
-        // khai báo assets cho admin
-        loadStyleAdmin();
     	// share tên module và tên bảng
     	View::share('module_name', $this->module_name);
         View::share('table_name', $this->table_name);
@@ -40,55 +38,55 @@ class AdminController extends Controller
             View::share('breadcrumbs',$this->breadcrumbs);
         }
         // Sử dụng middleware để check phân quyền và set ngôn ngữ
-        $this->middleware(function ($request, $next) {
+        // $this->middleware(function ($request, $next) {
             
-            // Nếu tồn tại table_name thì mới check quyền
-            if (isset($this->table_name)) {
-                // Lấy ra action method
-                $action_method = request()->route()->getName();
-                $action_method = array_last(explode('.', $action_method));
-                // Lấy ra toàn bộ phương thức từ config SudoModule
-                $module_method = [];
-                foreach (config('SudoModule')['modules'] as $key => $module) {
-                    // Nếu tồn tại config(SudoModule.modules.{module_name}.permision)
-                    if (isset($module['permision']) && !empty($module['permision'])) {
-                        foreach ($module['permision'] as $permision) {
-                            // Nếu tồn tại config(SudoModule.modules.{module_name}.permision.type)
-                            if (isset($permision['type']) && !empty($permision['type'])) {
-                                // Thêm phương thức
-                                $module_method[] = $permision['type'];
-                            }
-                        }
-                    }
-                }
-                $module_method = array_unique($module_method);
-                // Kiểm tra action_method mới các quyền CURD cơ bản
-                if(in_array($action_method, $module_method)) {
-                    // Nếu phường thức là store thì sẽ check quyền create
-                    if ($action_method == 'store') {
-                        $action_method = 'create';
-                    }
-                    // Nếu phường thức là update thì sẽ check quyền edit
-                    if ($action_method == 'update') {
-                        $current_action = 'edit';
-                    }
-                    // Quyền
-                    $permission = $this->table_name.'_'.$action_method;
-                    // Kiểm tra quyền
-                    if (checkRole($permission) == false) {
-                        return redirect(route('admin.home'))->with([
-                            'type' => 'danger',
-                            'message' => 'Core::admin.role.no_permission',
-                        ]);
-                    }
-                }
-                // Nếu hợp lệ hoặc action_method không thuộc CURD cơ bản ở trên thì tiếp tục
-                // Nếu Muốn check quyền tại trang kế tiếp thì phải viết cho từng route
-                return $next($request);
-            } else {
-                return $next($request);
-            }
-        });
+        //     // Nếu tồn tại table_name thì mới check quyền
+        //     if (isset($this->table_name)) {
+        //         // Lấy ra action method
+        //         $action_method = request()->route()->getName();
+        //         $action_method = array_last(explode('.', $action_method));
+        //         // Lấy ra toàn bộ phương thức từ config SudoModule
+        //         $module_method = [];
+        //         foreach (config('SudoModule')['modules'] as $key => $module) {
+        //             // Nếu tồn tại config(SudoModule.modules.{module_name}.permision)
+        //             if (isset($module['permision']) && !empty($module['permision'])) {
+        //                 foreach ($module['permision'] as $permision) {
+        //                     // Nếu tồn tại config(SudoModule.modules.{module_name}.permision.type)
+        //                     if (isset($permision['type']) && !empty($permision['type'])) {
+        //                         // Thêm phương thức
+        //                         $module_method[] = $permision['type'];
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //         $module_method = array_unique($module_method);
+        //         // Kiểm tra action_method mới các quyền CURD cơ bản
+        //         if(in_array($action_method, $module_method)) {
+        //             // Nếu phường thức là store thì sẽ check quyền create
+        //             if ($action_method == 'store') {
+        //                 $action_method = 'create';
+        //             }
+        //             // Nếu phường thức là update thì sẽ check quyền edit
+        //             if ($action_method == 'update') {
+        //                 $current_action = 'edit';
+        //             }
+        //             // Quyền
+        //             $permission = $this->table_name.'_'.$action_method;
+        //             // Kiểm tra quyền
+        //             if (checkRole($permission) == false) {
+        //                 return redirect(route('admin.home'))->with([
+        //                     'type' => 'danger',
+        //                     'message' => 'Core::admin.role.no_permission',
+        //                 ]);
+        //             }
+        //         }
+        //         // Nếu hợp lệ hoặc action_method không thuộc CURD cơ bản ở trên thì tiếp tục
+        //         // Nếu Muốn check quyền tại trang kế tiếp thì phải viết cho từng route
+        //         return $next($request);
+        //     } else {
+        //         return $next($request);
+        //     }
+        // });
     }
 
     /** 

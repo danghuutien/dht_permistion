@@ -22,6 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
+                "Package\\Layout\\Providers\\LayoutServiceProvider",
                 "Package\\Table\\Providers\\TableServiceProvider",
                 "Package\\Form\\Providers\\FormServiceProvider"
             ],

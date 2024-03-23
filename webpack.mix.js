@@ -12,11 +12,21 @@ const mix = require('laravel-mix');
  */
 
 build = [
-    
+    {
+        'file_path': 'public/admin_assets/build/js/app.min.js',
+        'files': [
+           'public/admin_assets/js/app.js',
+        ],
+     },
 ];
 
 buildScss = [
- 
+    {
+        'file_path': 'public/admin_assets/build/css/style.min.css',
+        'files': [
+           'public/admin_assets/css/style.scss',
+        ],
+     }
 ];
 
 
@@ -32,3 +42,4 @@ buildScss.forEach(function (value) {
 mix.postCss("public/admin_assets/css/tailwindcss.css", "public/admin_assets/build/css/tailwindcss.min.css", [
     require("tailwindcss"),
 ]);
+mix.copy('node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js', 'public/js/ckeditor/ckeditor.js');
