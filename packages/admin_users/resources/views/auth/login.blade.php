@@ -74,9 +74,11 @@
                     if (this.dataForm.validate().errors().any()) {
                         return;
                     }
-                    console.log(1);
-                    const response = axios.post(this.url, this.dataForm.data)
-                    console.log(response.data);
+                    const response = await axios.post(this.url, this.dataForm.data)
+                    console.log(response);
+                    if(response.data.status == 1){
+                        window.location.href = response.data.url
+                    }
                 }
             }
         });

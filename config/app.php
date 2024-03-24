@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-
-    'admin_dir' => env('ADMIN_DIR', 'admin'),
     'vesion' => '1.2',
     /*
     |--------------------------------------------------------------------------

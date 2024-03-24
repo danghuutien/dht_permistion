@@ -32,7 +32,7 @@ class AuthController extends Controller
                 return [
                     'status' => 1,
                     'message' => 'Đăng nhập thành công',
-                    'url' => $url ?? route('admin.home')
+                    'url' => $url ?? route('admin.pages.create')
                 ];
             } else {
                 Auth::logout();
@@ -47,5 +47,14 @@ class AuthController extends Controller
                 'message' => 'Đăng nhập không thành công',
             ];
         }
+    }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        if (!Auth::check() && !Auth::check()) {
+            $request->session()->flush();
+            $request->session()->regenerate();
+        }
+        return redirect(route('admin.login'));
     }
 }

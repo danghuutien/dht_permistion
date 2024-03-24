@@ -2,5 +2,5 @@
     "/admin_assets/build/css/tailwindcss.min.css": "/admin_assets/build/css/tailwindcss.min.css",
     "/admin_assets/build/css/style.min.css": "/admin_assets/build/css/style.min.css",
     "/admin_assets/build/js/app.min.js": "/admin_assets/build/js/app.min.js",
-    "/js/ckeditor/ckeditor.js": "/js/ckeditor/ckeditor.js"
+    "/admin_assets/build/js/jquery.min.js": "/admin_assets/build/js/jquery.min.js"
 }
