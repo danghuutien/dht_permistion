@@ -19,6 +19,12 @@ build = [
         ],
      },
      {
+        'file_path': 'public/admin_assets/build/js/ckeditor.min.js',
+        'files': [
+           'public/admin_assets/js/ckeditor.js',
+        ],
+     },
+     {
         'file_path': 'public/admin_assets/build/js/jquery.min.js',
         'files': [
             'public/admin_assets/js/jquery.js',
@@ -31,6 +37,7 @@ buildScss = [
         'file_path': 'public/admin_assets/build/css/style.min.css',
         'files': [
            'public/admin_assets/css/style.scss',
+           'public/admin_assets/css/custom.scss',
         ],
     },
     

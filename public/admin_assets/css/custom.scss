@@ -1,0 +1,23 @@
+.ck{
+    .ck-content{
+        min-height: 400px;
+        *{
+            border: revert;
+            font-size: revert;
+            margin: revert;
+            outline: revert;
+            padding: revert;
+            color: revert;
+            vertical-align: revert;
+            list-style: revert;
+        }
+        p,
+        span{
+            font-size: 1em;
+            line-height: 1.6em;
+        }
+        .ck-powered-by{
+            display: none;
+        }
+    }
+}

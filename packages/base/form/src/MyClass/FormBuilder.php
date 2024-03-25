@@ -256,7 +256,6 @@ class FormBuilder {
 	 * @param number 	$required: bắt buộc (0 Không | 1 có)
 	 * @param string 	$label: Tiêu đề hiển thị
      * @param string    $placeholder: Gợi ý nhập
-	 * @param string 	$has_row: label và thẻ input có nằm 1 hàng không (false không | true có)
      * @param string    $class_col: class để chia cột (col-lg-6 chia 2 cột | col-lg-4 chia 3 cột | col-lg-3 chia 4 cột)
 	 */
 	function text(
@@ -265,7 +264,6 @@ class FormBuilder {
 		$required 			= 0, 
 		$label 				= 'Tiêu đề',
 		$placeholder 		= null,
-        $has_row            = false,
         $class_col          = '',
         $disable            = false
 	) {
@@ -276,7 +274,6 @@ class FormBuilder {
 			'required'		=> $required,
 			'label'			=> $label,
 			'placeholder'	=> $placeholder,
-            'has_row'       => $has_row,
             'class_col'     => $class_col,
             'disable'       => $disable,
 		];
@@ -287,7 +284,6 @@ class FormBuilder {
      * @param number    $required: bắt buộc (0 Không | 1 có)
      * @param string    $label: Tiêu đề hiển thị
      * @param string    $placeholder: Gợi ý nhập
-     * @param string    $has_row: label và thẻ input có nằm 1 hàng không (false không | true có)
      * @param string    $class_col: class để chia cột (col-lg-6 chia 2 cột | col-lg-4 chia 3 cột | col-lg-3 chia 4 cột)
      * @param string    $convert_number: conver số sang định dạng giá tiền VD: 10000 => 10,000
      */
@@ -297,7 +293,6 @@ class FormBuilder {
         $required           = 0,
         $label              = 'Tiêu đề',
         $placeholder        = null,
-        $has_row            = false,
         $class_col          = '',
         $disable            = false,
         $convert_number     = true
@@ -309,10 +304,8 @@ class FormBuilder {
             'required'      => $required,
             'label'         => $label,
             'placeholder'   => $placeholder,
-            'has_row'       => $has_row,
             'class_col'     => $class_col,
             'disable'       => $disable,
-            'convert_number'=> $convert_number,
         ];
     }
 

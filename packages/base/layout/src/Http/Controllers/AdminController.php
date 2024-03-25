@@ -31,9 +31,9 @@ class AdminController extends Controller
             // Lấy breadcrumbs theo tên route
             $action_method = str_replace('admin.'.$this->table_name.'.', '', \Route::currentRouteName());
             switch ($action_method) {
-                case 'create': $this->breadcrumbs[] = ['name' => trans('Translate::table.create')]; break;
-                case 'show': $this->breadcrumbs[] = ['name' => trans('Translate::table.show')]; break;
-                case 'edit': $this->breadcrumbs[] = ['name' => trans('Translate::table.edit')]; break;
+                case 'create': $this->breadcrumbs[] = ['name' => 'Thêm mới']; break;
+                case 'show': $this->breadcrumbs[] = ['name' => 'Chi tiết']; break;
+                case 'edit': $this->breadcrumbs[] = ['name' => 'Cập nhật']; break;
             }
             View::share('breadcrumbs',$this->breadcrumbs);
         }

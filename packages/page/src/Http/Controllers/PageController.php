@@ -50,14 +50,9 @@ class PageController extends AdminController
     public function create() {
         // Khởi tạo form
         $form = new Form;
-
-        $form->lang($this->table_name, true);
-        $form->text('name', '', 1, 'Tiêu đề', '', true);
-        $form->slug('slug', '', 1, 'Đường dẫn', 'name', true, $this->table_name, true);
+        $form->text('name', '', 0, 'Tiêu đề', 'Nhập tiêu đề', '');
         $form->editor('detail', '', 0, 'Nội dung', true);
-        $form->checkbox('status', 1, 1, 'Trạng thái');
         $form->action('add');
-        // Hiển thị form tại view
         return $form->render('create');
     }
 
