@@ -64,30 +64,32 @@ class PageController extends AdminController
      */
     public function store(Request $requests) {
         // Xử lý validate
-        validateForm($requests, 'name', 'Tiêu đề không được để trống.');
-        validateForm($requests, 'slug', 'Đường dẫn không được để trống.');
-        validateForm($requests, 'slug', 'Đường dẫn đã bị trùng.', 'unique', 'unique:slugs');
+        // validateForm($requests, 'name', 'Tiêu đề không được để trống.');
         // Các giá trị mặc định
         $status = 0;
         // Đưa mảng về các biến có tên là các key của mảng
         extract($requests->all(), EXTR_OVERWRITE);
 
         // Nếu click lưu nháp
-        if($redirect == 'save'){
-            $status = 0;
-            $redirect = 'edit';
-        }
+        // if($redirect == 'save'){
+        //     $status = 0;
+        //     $redirect = 'edit';
+        // }
         // Thêm vào DB
+        $detail = '';
         $created_at = $updated_at = date('Y-m-d H:i:s');
+        $slug = '1-1-1-1';
         $compact = compact('name','slug','detail','status','created_at','updated_at');
         $id = $this->models->createRecord($requests, $compact, $this->has_seo, true);
-        DB::table('slugs')->insert([
-            'table' => 'pages',
-            'table_id' => $id,
-            'slug' => $slug,
-            'created_at' => $created_at,
-            'updated_at' => $updated_at,
-        ]);
+        // DB::table('slugs')->insert([
+        //     'table' => 'pages',
+        //     'table_id' => $id,
+        //     'slug' => $slug,
+        //     'created_at' => $created_at,
+        //     'updated_at' => $updated_at,
+        // ]);
+        return ['type' => 'success',
+        'message' => 'Thêm mới thành công'];
         // Điều hướng
         return redirect(route('admin.'.$this->table_name.'.'.$redirect, $id))->with([
             'type' => 'success',

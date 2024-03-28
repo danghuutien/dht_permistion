@@ -36,8 +36,11 @@
         },
         methods: {
             async submitForm(){
-                console.log(self.dataForm.data);
-                const response = await axios.post('', self.dataForm.data)
+                if (this.dataForm.validate().errors().any()) {
+                    return;
+                }
+                console.log(this.dataForm.data);
+                const response = await axios.post('{{ route('admin.pages.store') }}', this.dataForm.data)
                 if(response.data.type = 'success'){
                     console.log(1);
                     // self.success(response.data.message)

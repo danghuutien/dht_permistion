@@ -2,8 +2,8 @@
 @section('content')
     <div id="app">
         @include('Form::generate')
+        <button @click="submitForm()">save</button>
     </div>
-    <button @click="submitForm()">save</button>
 @endsection
 @section('foot')
     @include('Form::script')

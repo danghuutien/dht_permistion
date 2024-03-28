@@ -105,7 +105,6 @@ function initEditor(editor){
                 {model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6'}
             ]
         },
-        placeholder: 'Chào mừng đến với website của đặng hữu tiến',
         fontFamily: {
             options: [
                 'default',
